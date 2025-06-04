@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inicia sesión - Google</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f1f3f4;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      display: flex;
+      flex-direction: row;
+      background-color: #fff;
+      border-radius: 28px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.1);
+      width: 850px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .left-side, .right-side {
+      padding: 40px;
+      width: 50%;
+    }
+
+    .left-side {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .google-logo {
+      width: 75px;
+      margin-bottom: 8px;
+    }
+
+    .left-side h1 {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 6px;
+      margin-top: 10px;
+    }
+
+    .left-side .subtext {
+      font-size: 16px;
+      color: #5f6368;
+      margin-bottom: 8px; /* menos margen para que quede más pegado */
+    }
+
+    /* Aquí se mostrará el email ingresado */
+    .left-side .user-email-display {
+      font-size: 16px;
+      font-weight: 500;
+      color: #202124;
+      margin-bottom: 24px;
+      min-height: 24px; /* para evitar que se mueva el diseño al aparecer */
+    }
+
+    .form-floating>.form-control {
+      height: 56px;
+      padding: 1rem 12px 0.5rem 12px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+    }
+
+    .form-floating label {
+      padding-left: 12px;
+      color: #5f6368;
+    }
+
+    .form-control:focus {
+      border: 2px solid #1a73e8;
+      box-shadow: none;
+    }
+
+    .link-small {
+      font-size: 14px;
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: #1a73e8;
+      border-color: #1a73e8;
+      border-radius: 20px;
+      padding: 8px 30px;
+      font-weight: 500;
+    }
+
+    .bottom-text {
+      font-size: 14px;
+      color: #5f6368;
+      margin-top: 24px;
+    }
+
+    .d-flex-between {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #5f6368;
+      margin-top: 40px;
+    }
+
+    .footer a {
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .select-lang {
+      border: none;
+      background: transparent;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    /* Estilos para el formulario de contraseña oculto inicialmente */
+    #passwordForm {
+      display: none;
+    }
+
+    .form-check {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <div class="login-box">
+
+    <!-- Columna Izquierda -->
+    <div class="left-side">
+      <img src="https://c0.klipartz.com/pngpicture/882/225/gratis-png-google-logo-google-logo-google-icono-de-busqueda-google.png" class="google-logo" alt="Google Logo" />
+      <h1>Inicia sesión</h1>
+      <div class="subtext">Ir a Gmail</div>
+      <!-- Aquí se mostrará el email ingresado -->
+      <div class="user-email-display" id="userEmailDisplay"></div>
+    </div>
+
+    <!-- Columna Derecha -->
+    <div class="right-side">
+      <!-- Formulario 1: Email -->
+      <form id="emailForm">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="email" placeholder="Correo electrónico o teléfono" required />
+          <label for="email">Correo electrónico o teléfono</label>
+        </div>
+
+        <div class="mb-3">
+          <a href="#" class="link-small">¿Has olvidado tu correo electrónico?</a>
+        </div>
+
+        <div class="bottom-text">
+          ¿No es tu ordenador? Usa una ventana privada para iniciar sesión.
+          <br />
+          <a href="#" class="link-small">Más información sobre cómo usar el modo Invitado</a>
+        </div>
+
+        <div class="d-flex-between">
+          <a href="#" class="link-small">Crear cuenta</a>
+          <button type="submit" class="btn btn-primary">Siguiente</button>
+        </div>
+      </form>
+
+      <!-- Formulario 2: Contraseña -->
+      <form id="passwordForm">
+        <!-- Ya no mostramos el email aquí -->
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña" required />
+          <label for="password">Introduce tu contraseña</label>
+        </div>
+
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="showPassword" />
+          <label class="form-check-label" for="showPassword">Mostrar contraseña</label>
+        </div>
+
+        <div class="mb-3">
+          <a href="#" class="link-small">¿Has olvidado tu contraseña?</a>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary">Siguiente</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <div>
+    <a href="#">Ayuda</a>
+    <a href="#">Privacidad</a>
+    <a href="#">Términos</a>
+  </div>
+  <select class="select-lang">
+    <option selected>Español (España)</option>
+    <option>Español (Latinoamérica)</option>
+    <option>Inglés</option>
+  </select>
+</div>
+
+<script>
+  const emailForm = document.getElementById('emailForm');
+  const passwordForm = document.getElementById('passwordForm');
+  const emailInput = document.getElementById('email');
+  const userEmailDisplay = document.getElementById('userEmailDisplay');
+  const passwordInput = document.getElementById('password');
+  const showPassword = document.getElementById('showPassword');
+
+  emailForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if (email) {
+      userEmailDisplay.textContent = email; // Aquí asignamos el email en la columna izquierda
+      emailForm.style.display = 'none';
+      passwordForm.style.display = 'block';
+      passwordInput.focus();
+    }
+  });
+
+  showPassword.addEventListener('change', function () {
+    passwordInput.type = showPassword.checked ? 'text' : 'password';
+  });
+
+  passwordForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Inicio de sesión simulado con éxito.');
+  });
+</script>
+
+</body>
+</html>
