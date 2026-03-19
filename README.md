@@ -1,5 +1,4 @@
-Es posible unir el login con alguna base de datos o incluso al block de notas para que guarde datos 
-de registro
+Si gustan pueden unir el login a una base de datos de momento solo guarda los datos de la victima en un txt.
 https://tkxf8z-8080.csb.app/
 ![image](https://github.com/user-attachments/assets/8054b464-481c-4aea-a18e-1e2646f9fcf7)
 
